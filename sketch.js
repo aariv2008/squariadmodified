@@ -1,57 +1,39 @@
-
 function setup(){
-  createCanvas(500,500);
-   wall=createSprite(0,215,170,10) 
-wall.velocityY=1
- wall2=createSprite(360,208,170,10)
-wall2.velocityY=-1
- thef=createSprite(200,350,30,30)
+    createCanvas(500,500);
+    atacker=createSprite(225,27,30,30)
+     defender=createSprite(180,320,30,30)
+     defender2=createSprite(220,320,30,30)
+     defender3=createSprite(160,340,30,30)
+     defender4=createSprite(200,340,30,30)
+     defender5=createSprite(240,340,30,30)
+     defender6=createSprite(200,300,30,30)
+    atacker.shapeColor=("white")
+    atacker.velocityX=1
+    atacker.velocityY=-1
+        
+       
+}
+function draw()
 
- dimond=createSprite(388,0,30,30)
-wall.shapeColor=("red")
-wall2.shapeColor=("red")
-thef.shapeColor=("blue")
-dimond.shapeColor=("green")
-}
-  
-
-function draw() {
-  background("yellow")
-if (keyDown(LEFT_ARROW)){
-  thef.x=thef.x-1
-  
-}
-if (keyDown(RIGHT_ARROW)){
-  thef.x=thef.x+1
-}
-
-if (keyDown(UP_ARROW)){
-  thef.y=thef.y-1
-}
-if (keyDown(DOWN_ARROW)){
-thef.y=thef.y+1
-}
-if(thef.isTouching(wall) || thef.isTouching(wall2))
 {
-  wall.velocityY=0
-  wall2.velocityY=0
-  textSize(25)
- stroke("red")
- fill("black") 
-  text("Thief is caught",200,200)
-}
-
-if(thef.isTouching(dimond) )
-{
-  wall.velocityY=0
-  wall2.velocityY=0
-  textSize(25)
-  fill("black")
-  stroke("red")
-  text("Thief has Stolen the Diamond",36,200)
-}
- edges= createEdgeSprites()
-  wall.bounceOff(edges)
-  wall2.bounceOff(edges)
+background("black")
 drawSprites()
+edges=createEdgeSprites()
+atacker.bounceOff(edges)
+defender.bounceOff(edges)
+defender2.bounceOff(edges)
+defender3.bounceOff(edges)
+defender4.bounceOff(edges)
+defender5.bounceOff(edges)
+defender6.bounceOff(edges)
+defender.bounceOff(atacker)
+defender2.bounceOff(atacker)
+defender3.bounceOff(atacker)
+defender4.bounceOff(atacker)
+defender5.bounceOff(atacker)
+defender6.bounceOff(atacker)
+
+
+
+
 }
